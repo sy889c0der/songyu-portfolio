@@ -1,5 +1,7 @@
 import { useRef, useEffect, useState, useCallback } from "react";
 import { useVideoFrame } from "../hooks/useVideoFrame";
+const BASE = import.meta.env.BASE_URL;
+
 import NatureBackground from "./NatureBackground";
 
 interface Project {
@@ -14,7 +16,7 @@ const projects: Project[] = [
     description: "A complete mobile interaction prototype for the regional specialty 'Wuxi Wei', blending cultural heritage with modern UI language.",
     fullDescription: "Collaboration with Wang Hao. Centered on the regional specialty 'Wuxi Wei', this project maps the full user journey \u2014 from browsing to ordering \u2014 through a polished Figma prototype. Warm-toned ingredient showcases, streamlined order flows, and a branded visual symbol system bring local heritage into the digital space with warmth and clarity. Figma component variants and interactive prototyping features deliver a high-fidelity, clickable demo. Includes demo video documentation.",
     tags: ["Figma", "Prototyping", "UI/UX", "Interaction Design"],
-    images: ["/portfolio/unity/\u5fae\u5c0f\u7684\u786e\u5b9a.jpg","/portfolio/web/\u81ea\u7136\u539f\u91ce.jpg"],
+    images: [BASE + "portfolio/unity/\u5fae\u5c0f\u7684\u786e\u5b9a.jpg",BASE + "portfolio/web/\u81ea\u7136\u539f\u91ce.jpg"],
     accent: "#FF6B35",
   },
   {
@@ -22,7 +24,7 @@ const projects: Project[] = [
     description: "The evolution of a web experience \u2014 from serene static layout to immersive dynamic narrative with parallax and particle effects.",
     fullDescription: "A record of web evolution. 'Wild Fields' (v1) uses fresh natural tones, CSS flex layout, and clean typography for an open, airy browsing experience. 'Mist Forest' (v2) pivots to immersive storytelling \u2014 multi-layer parallax scrolling, CSS particle animation, mist overlays, and audio-reactive interactions \u2014 as if stepping into a breathing digital forest. Deployed on GitHub Pages, open source, with a dedicated API key system.",
     tags: ["HTML/CSS", "JavaScript", "Parallax", "Particles", "Open Source"],
-    images: ["/portfolio/web/\u81ea\u7136\u539f\u91ce.jpg","/portfolio/web/11.jpg","/portfolio/unity/scenes/\u7a97\u4e2d\u82b1\u56ed.jpg"],
+    images: [BASE + "portfolio/web/\u81ea\u7136\u539f\u91ce.jpg",BASE + "portfolio/web/11.jpg",BASE + "portfolio/unity/scenes/\u7a97\u4e2d\u82b1\u56ed.jpg"],
     link: "https://sy889c0der.github.io/wilderness",
     accent: "#4CAF50",
   },
@@ -31,7 +33,7 @@ const projects: Project[] = [
     description: "A first-person exploration experience \u2014 nine meticulously crafted micro-spaces, each holding its own quiet narrative.",
     fullDescription: "Built around 'small but certain happiness,' this Unity experience features nine independently modeled spaces: a bookshelf corner crammed with volumes, a caf\u00e9 bathed in warm light, a window garden blooming in concrete, a wardrobe of old stories, a weathered sink mirror, crumbling ruins, a kitchen's warmth, a solitary ergonomic chair, and the first light of the start screen. The work explores the narrative potential of game engines beyond traditional gameplay.",
     tags: ["Unity", "3D Scenes", "Game Design", "Narrative"],
-    images: ["/portfolio/unity/\u5fae\u5c0f\u7684\u786e\u5b9a.jpg","/portfolio/unity/scenes/\u5f00\u59cb.jpg","/portfolio/unity/scenes/\u4e66\u67dc.jpg","/portfolio/unity/scenes/\u5496\u5561\u5385.jpg","/portfolio/unity/scenes/\u7a97\u4e2d\u82b1\u56ed.jpg","/portfolio/unity/scenes/\u8863\u67dc.jpg"],
+    images: [BASE + "portfolio/unity/\u5fae\u5c0f\u7684\u786e\u5b9a.jpg",BASE + "portfolio/unity/scenes/\u5f00\u59cb.jpg",BASE + "portfolio/unity/scenes/\u4e66\u67dc.jpg",BASE + "portfolio/unity/scenes/\u5496\u5561\u5385.jpg",BASE + "portfolio/unity/scenes/\u7a97\u4e2d\u82b1\u56ed.jpg",BASE + "portfolio/unity/scenes/\u8863\u67dc.jpg"],
     accent: "#7C4DFF",
   },
   {
@@ -39,7 +41,7 @@ const projects: Project[] = [
     description: "Vector infographics generated with AI-assisted design tools \u2014 turning complex datasets into clear, elegant visual narratives.",
     fullDescription: "Integrating AI toolchains into the traditional information design workflow. The output spans multiple themes and chart types \u2014 bar charts, donut charts, scatter plots, timeline infographics. Core philosophy: 'human-directed, machine-assisted' \u2014 AI handles iterative generation and layout suggestions, while the designer owns aesthetic judgment, narrative rhythm, and factual accuracy. The final set balances data rigor with visual impact.",
     tags: ["AI Design", "Vector Graphics", "Infographics", "Data Storytelling"],
-    images: ["/portfolio/dataviz/1192230122\u5b8b\u5b87\u53ef\u89c6\u5316-300.jpg","/portfolio/spline/\u51e0\u4e4e\u5168\u6d41\u7a0b\u622a\u56fe.jpg"],
+    images: [BASE + "portfolio/dataviz/1192230122\u5b8b\u5b87\u53ef\u89c6\u5316-300.jpg",BASE + "portfolio/spline/\u51e0\u4e4e\u5168\u6d41\u7a0b\u622a\u56fe.jpg"],
     accent: "#00BCD4",
   },
   {
@@ -47,7 +49,7 @@ const projects: Project[] = [
     description: "A collaboration with Zippo \u2014 dark basalt base, gradient lacquer, and laser-engraved cyberpunk circuit patterns.",
     fullDescription: "A full-spectrum product design collaboration with Zippo, from concept to production-ready specifications. The cyberpunk visual language drives the aesthetic: matte black basalt-textured base serves as canvas, gradient lacquer creates a neon ambiance, and laser engraving on both front and back renders intricate circuit traces and futuristic city skyline motifs. The challenge: balancing subcultural edge with industrial manufacturability.",
     tags: ["Product Design", "Cyberpunk", "Laser Engraving", "Brand Collab"],
-    images: ["/portfolio/zippo/\u6548\u679c\u56fe1.jpg","/portfolio/zippo/\u6548\u679c\u56fe2.jpg"],
+    images: [BASE + "portfolio/zippo/\u6548\u679c\u56fe1.jpg",BASE + "portfolio/zippo/\u6548\u679c\u56fe2.jpg"],
     accent: "#E91E63",
   },
   {
@@ -55,7 +57,7 @@ const projects: Project[] = [
     description: "An interactive historical narrative built in Spline 3D \u2014 merging spatial modeling with data visualization.",
     fullDescription: "Created with Spline 3D, centered on supply evolution during the Long March. The project fuses 3D spatial modeling with timeline-based data: viewers can orbit, zoom, and explore the scene as supply categories, quantities, and flows shift across each phase of the journey. An AI-assisted workflow covered everything from concept ideation and 3D asset generation to scene choreography. Includes full project documentation PDF and demo video.",
     tags: ["Spline", "3D Modeling", "Data Storytelling", "History Viz"],
-    images: ["/portfolio/spline/\u51e0\u4e4e\u5168\u6d41\u7a0b\u622a\u56fe.jpg","/portfolio/zippo/\u6548\u679c\u56fe1.jpg"],
+    images: [BASE + "portfolio/spline/\u51e0\u4e4e\u5168\u6d41\u7a0b\u622a\u56fe.jpg",BASE + "portfolio/zippo/\u6548\u679c\u56fe1.jpg"],
     accent: "#FF9800",
   },
 ];
